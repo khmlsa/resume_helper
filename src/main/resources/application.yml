@@ -1,3 +1,9 @@
 spring:
   application:
     name: resume_helper
+  profiles:
+    active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
