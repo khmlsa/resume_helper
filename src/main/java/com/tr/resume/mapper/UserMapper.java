@@ -1,0 +1,18 @@
+package com.tr.resume.mapper;
+
+import com.tr.resume.entity.po.User;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author tr
+ * @since 2025-05-17
+ */
+@Mapper
+public interface UserMapper extends BaseMapper<User> {
+
+}
