@@ -2,9 +2,9 @@ package com.tr.resume.controller.user;
 
 import com.tr.resume.entity.Result;
 import com.tr.resume.entity.dto.UserLoginDTO;
+import com.tr.resume.entity.vo.UserVO;
 import com.tr.resume.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +22,13 @@ public class UserController {
 
     @Operation(summary = "登录", description = "登录")
     @PostMapping("/login")
-    public Result login(@RequestBody @Valid UserLoginDTO userLoginDTO) {
-        userService.login(userLoginDTO);
-        return Result.success();
+    public Result<UserVO> login(@RequestBody @Valid UserLoginDTO userLoginDTO) {
+        return Result.success(userService.login(userLoginDTO));
     }
 
     @Operation(summary = "注册", description = "注册")
     @PostMapping("/register")
-    public Result register(@RequestBody @Valid UserLoginDTO userLoginDTO) {
+    public Result<String> register(@RequestBody @Valid UserLoginDTO userLoginDTO) {
         userService.register(userLoginDTO);
         return Result.success();
     }
